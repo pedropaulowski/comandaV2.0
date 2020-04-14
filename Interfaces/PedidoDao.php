@@ -11,4 +11,5 @@ interface PedidoDao {
     public function getPedido(int $id):Pedido;  
     public function alterarEstado(int $id, int $estado, string $hora):bool;
     public function getAllPedidosAFazer(string $hora):array;
+    public function getAllPedidosParaPagar(string $hora):array;
 }

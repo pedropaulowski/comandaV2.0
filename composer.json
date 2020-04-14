@@ -4,5 +4,8 @@
             "Interfaces\\": "Interfaces\\",
             "Dao\\": "Dao\\"
         }
+    },
+    "require": {
+        "pagarme/pagarme-php": "^4.0"
     }
 }

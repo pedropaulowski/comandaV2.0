@@ -52,6 +52,15 @@ require '../../partials/header/index.php';
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Recebimentos Pendentes</h5>
+                        <p class="card-text">Todos os pedidos que ainda não fora pagos pelos clientes.</p>
+                        <a href="../pagamento/" class="btn btn-primary">Ver Pedidos</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     </div>

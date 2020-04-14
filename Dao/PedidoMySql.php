@@ -163,4 +163,34 @@ class PedidoMySql implements \Interfaces\PedidoDao{
 
         return $pedidos;
     }
+
+    public function getAllPedidosParaPagar(string $hora): array {
+        $pedidos = [];
+        $sql = "SELECT * FROM pedidos WHERE estado = 2 AND hora > :hora";
+        $sql = $this->pdo->prepare($sql);
+        $sql->bindValue(":hora", $hora);
+        $sql->execute();
+
+        if($sql->rowCount() > 0) {
+            $sql = $sql->fetchAll(PDO::FETCH_ASSOC);
+            foreach($sql as $pedido) {               
+                $pedido['mesa'];
+                
+                $pedidos[] = [
+                    "id_pedido" => $pedido['id_pedido'],
+                    "mesa" => $pedido['mesa'],
+                    "pedidos" => json_decode(utf8_encode($pedido['pedidos']), true),
+                    "precos" => json_decode($pedido['precos'], true),
+                    "obs" => $pedido['obs'],
+                    "total" => $pedido['total'],
+                    "hora" => $pedido['hora'],
+                    "estado" => $pedido['estado'],
+
+                ];
+            }
+
+        }
+
+        return $pedidos;
+    }
 }

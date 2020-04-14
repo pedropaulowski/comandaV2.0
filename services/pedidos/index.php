@@ -111,6 +111,20 @@ switch($method) {
     
                 $usuario->setUltimoAcesso($id, $agora);
             break;
+            
+            case 'para pagar 0':
+                echo json_encode($pedidoDb->getAllPedidosParaPagar(0));
+                $agora = date("Y-m-d H:i:s");
+    
+                $usuario->setUltimoAcesso($id, $agora);
+            break;
+                echo json_encode($pedidoDb->getAllPedidosParaPagar($ultimoAcesso));
+                $agora = date("Y-m-d H:i:s");
+
+                $usuario->setUltimoAcesso($id, $agora);
+            
+            case 'para pagar':
+            break;
         }
         
     break;
